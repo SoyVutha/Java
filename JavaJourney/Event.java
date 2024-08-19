@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -204,7 +205,7 @@ public class Event {
                 System.out.printf("Event Name Cannot be empty");
                 continue;
             }
-
+            //Valid date format
             System.out.printf("Event Date(YYYY-MM-DD): ");
             Event.setEvent_date(scan.nextLine());
 
