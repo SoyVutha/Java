@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 
 public class FinanceTracker 
 {
+    
     //GLOBAL VARIABLE
     static int choice;
     static int add_income_index=0;
@@ -86,22 +87,7 @@ public class FinanceTracker
             this.date = date;
         }
 
-        // GUI CLASS
-        public class FinanceTrackerGUI{
-            private JFrame frame;
-            private JTextField nameField, amountField,dateField;
-            private JComboBox<String> transactionTpComboBox;
-            private JButton addButton, viewButton, filterButton;
-            private JTextArea ouTextArea;
-            
-            public FinanceTrackerGUI (){
-                createGUI();
-            }
 
-            private void createGUI(){
-                
-            }
-        }
 
 
     }   
@@ -465,6 +451,8 @@ public static void filterTranscation_function() {
 
 }
 }
+
+
 
 
 // global variable
