@@ -1,12 +1,17 @@
+import java.text.SimpleDateFormat;
 import java.util.*;// This is more dynamic compared to until. rand .....
 
 public class Bank {
     //GLOBAL VARIABLE
     static int choice;
     static int Max_Finace_Lenght=100;
+    static int account_index=0;
+    static int choiceV2;
+
 
     static Scanner scan = new Scanner(System.in);
     static Random rand = new Random();
+    static SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dddd");
 
 
     //Object
@@ -99,6 +104,8 @@ public class Bank {
     public static void main(String[] args) {
         while(true)
         {
+            
+
             System.out.println("\nMENU:\n");
             System.out.printf("1.Create account\n");
             System.out.println("2.Deposit money\n");
@@ -153,9 +160,83 @@ public class Bank {
     {
         while(true)
         {
+            bank_information Bank = new bank_information();
+            System.out.printf("Enter your name(0 to stop):");
+            Bank.setAccount_name(scan.nextLine().trim());
+            if(Bank.getAccount_name().equals("0"))
+            {
+                break;
+            }
 
+            //Check if the name if duplicated
+            if(is_duplicate_function(Bank.getAccount_name()))
+            {
+                System.out.printf("This name is taken, please enter another one\n");
+                continue;
+            }
+
+            //generate number
+            Bank.setAccount_number(isIdUnique());
+
+            //Account type
+            System.out.printf("Enter your account type(1 for saving, 2 for checking):");
+            choiceV2=scan.nextInt();
+            scan.nextLine();
+            if(choiceV2==1)
+            {
+                Bank.setAccount_type("Save");
+            }
+             else if(choiceV2==2)
+            {
+                Bank.setAccount_type("Check");
+            }
+            else {
+                System.out.printf("Invalid choice. Please choose a valid option.\n");
+                break;
+            }
+            
+            //account create date 
+            String currentDate=date.format(new Date());
+            Bank.setDate(currentDate);
+            System.out.println("Account successfully created on: "+ Bank.getDate());
+
+            Banks[account_index++]=Bank;
+            
         }
+    }
 
+    public static boolean is_duplicate_function(String name)
+    {
+        for(int i=0;i<account_index;i++)
+        {
+            bank_information Bank=Banks[i];
+            if(Bank.getAccount_name().equals(name))
+            {
+                return true;
+            }
+        }
+            return false;   
+    }
+
+    public static int isIdUnique()
+    {
+        int id=0;
+        do{
+            id=rand.nextInt(Integer.MAX_VALUE-1)+1;
+        }while(idExist(id));
+        return id;
+    }
+
+    public static boolean idExist(int id)
+    {
+        for( int i=0;i<account_index;i++)
+        {
+            bank_information Bank=Banks[i];
+            if(Bank.getAccount_number()==id){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void deposit_money_function()
