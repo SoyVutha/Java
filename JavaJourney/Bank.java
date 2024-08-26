@@ -7,6 +7,7 @@ public class Bank {
     static int Max_Finace_Lenght=100;
     static int account_index=0;
     static int choiceV2;
+    static int isUSerFound=0;
 
 
     static Scanner scan = new Scanner(System.in);
@@ -106,7 +107,7 @@ public class Bank {
         {
             
 
-            System.out.println("\nMENU:\n");
+            System.out.printf("\nMENU:\n");
             System.out.printf("1.Create account\n");
             System.out.println("2.Deposit money\n");
             System.out.println("3.Withdraw money\n");
@@ -242,8 +243,75 @@ public class Bank {
     public static void deposit_money_function()
     //allow a single user to to input multiple deposit
     {
-
+        while(true)
+        {
+            bank_information withdraw=new bank_information();
+            System.out.printf("Enter username to deposite moeny(0 to stop):");
+            withdraw.setAccount_name(scan.nextLine());
+            if(withdraw.getAccount_name().equals("0"))
+            {
+                break;
+            }
+            bank_information user_account=finduser(withdraw.getAccount_name());
+            if(user_account!=null)
+            {
+                while(true)
+                {
+                    withdraw.setBalance(getValiDeposite("Enter Amount(0 to stop):"));
+                    if(withdraw.getBalance()==0)
+                    {
+                        break;
+                    }
+                    
+                }
+            }
+         
+        }
     }
+
+    public static bank_information  finduser(String username)
+    {
+        for(int i=0;i<account_index;i++)
+        {
+            bank_information Bank=Banks[i];
+            if(Bank.getAccount_name().equals(username)){
+                return Bank;
+            }
+        }
+        return null;
+       
+    }
+
+    public static float getValiDeposite(String prompt) {
+        float flaotvalue = 0.00f;
+        boolean isAmountValid = false;
+        while (!isAmountValid) {
+            System.out.printf(prompt);
+            String User_Amount = scan.nextLine().trim();
+            if (User_Amount.isEmpty()) {
+                System.out.println("Please enter a valid amount");
+                continue;
+            }
+            try {
+                flaotvalue = Float.parseFloat(User_Amount);
+                if (flaotvalue == 0) {
+                    break;
+                }
+                if (flaotvalue < 0) {
+                    System.out.println("Please enter a valid amount\n");
+                    continue;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.printf("Unvalid amount\n");
+                continue;
+            }
+        }
+
+        return flaotvalue;
+    }
+
+
 
     public static void withdraw_money_function()
     {
