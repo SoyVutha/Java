@@ -201,28 +201,121 @@ public class Method {
     }
 
     public static void View_transaction_history_function(){
+        while (true) {
+            Bank_information View_transaction=new Bank_information();
+            System.out.printf("\nEnter username(0 to stop): ");
+            View_transaction.setName(scan.nextLine().trim());
+            if(View_transaction.getName().equals("0"))
+            {
+                break;
+            }
+
+            Variable.is_view_transac_found=0;
+            for(int i=0;i<Variable.account_index;i++)
+            {
+                Bank_information bank=Bank_information.Banks[i];
+                if(bank.getName().equals(View_transaction.getName()))
+                {
+                    Variable.is_view_transac_found=1;
+                    System.out.print("-----------Transaction-------------------------------------------------\n");
+                    System.out.printf("%-15s%-15s%-15s\n", "Amount", "Date", "Transaction ID");
+                    for(int j=0;j<Variable.deposite_index;j++)
+                    {
+                        Bank_information deposit=Bank_information.Banks[i];
+                        System.out.printf("%-15.2f%-15s%-15s\n",deposit.getBalance(),deposit.getDate(),deposit.getTransaction_id());
+                    }
+                    System.out.print("-----------Withdraw-------------------------------------------------\n");
+                    System.out.printf("%-15s%-15s%-15s\n", "Amount", "Date", "Withdraw ID");
+                    for(int k=0;k<Variable.withdraw_index;k++)
+                    {
+                        Bank_information withdraw=Bank_information.Banks[i];
+                        System.out.printf("%-15.2f%-15s%-15s\n",withdraw.getBalance(),withdraw.getDate(),withdraw.getTransaction_id());
+                    }
+                    System.out.print("-----------transfer-------------------------------------------------\n");
+                    System.out.printf("%-15s%-15s%-15s\n", "Amount", "Date", "Transfer ID");
+                    for(int z=0;z<Variable.transfer_index;z++)
+                    {
+                        Bank_information transfer=Bank_information.Banks[i];
+                      System.out.printf("%-15.2f%-15s%-15s\n",transfer.getBalance(),transfer.getDate(),transfer.getTransaction_id());   
+                    }
+                    Bank_information.Banks[Variable.view_transac_index++]=View_transaction;
+                }
+            }
+            if(Variable.is_view_transac_found==0)
+            {
+                System.out.printf("User not found\n");
+            }
+        }
 
     }
 
     public static void Update_account_info_function(){
+        while (true) {
+            Bank_information update_acc=new Bank_information();
+            System.out.print("Enter username(0 to stop): ");
+            update_acc.setName(scan.nextLine().trim());
+            if(update_acc.getName().equals("0"))
+            {
+                break;
+            }
+            Variable.is_update_acc_found=0;
+            for(int i=0;i<Variable.account_index;i++)
+            {
+                Bank_information bank=Bank_information.Banks[i];
+                if(bank.getName().equals(update_acc.getName()))
+                {
+                    Variable.is_update_acc_found=1;
+                    System.out.printf("Enter new username:");
+                    String username=scan.nextLine();
+                    if(Addtional_function.is_duplicate_function(username))
+                    {
+                        System.out.printf("Username already exists,please enter another one. ");
+                        continue;
 
-    }
-
-    public static void  Close_acc_function(){
-
-    }
-
-    public static void User_function()
-    {
-        System.out.printf("%-15s%-15s%-15s%-15s\n","Name","Balance","Date","Id");
-        for (int i = 0; i < Variable.account_index; i++) {
-            Bank_information bank = Bank_information.Banks[i];
-            System.out.printf("%-15s%-15f%-15s%-15d\n", bank.getName(),bank.getBalance(),bank.getDate(),bank.getTransaction_id());
+                    }
+                    bank.setName(username);
+                }
+                Bank_information.Banks[Variable.is_update_acc_index++]=update_acc;
+            }
+            if(Variable.is_update_acc_found==0)
+            {
+                System.out.printf("user not found\n");
+            }
         }
     }
 
+    public static void  Close_acc_function(){
+        while (true) {
+            Bank_information close_acc=new Bank_information();
+            System.out.print("Enter username(0 to stop): ");
+            close_acc.setName(scan.nextLine());
+            if(close_acc.getName().equals("0"))
+            {
+                break;
+            }
+            Variable.is_close_acc_found=0;
+            for(int i=0;i<Variable.account_index;i++)
+            {
+                Bank_information bank=Bank_information.Banks[i];
+                if(bank.getName().equals(close_acc.getName()))
+                {
+                    Variable.is_close_acc_found=1;
+                    for(int j=i;j<Variable.account_index-1;j++)
+                    {
+                        Bank_information.Banks[j]=Bank_information.Banks[j+1];
+                    }
+                    Variable.account_index--;
+                    System.out.printf("Account close successfully\n");
+                }
+            }
+            if(Variable.is_close_acc_found==0)
+            {
+                System.out.printf("User not found\n");
+            }
 
-    
+            }
+ 
+    }
 }
 
 

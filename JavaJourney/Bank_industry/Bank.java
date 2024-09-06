@@ -19,8 +19,7 @@ public class Bank {
             System.out.printf("6.View transaction history\n");
             System.out.printf("7.Update account information\n");
             System.out.printf("8.Close acount\n");
-            System.out.printf("9.User\n");
-            System.out.printf("10.Exit\n");
+            System.out.printf("9.Exit\n");
             System.out.printf("Enter your choice: ");
             Variable.choice=scan.nextInt();
             scan.nextLine();
@@ -50,8 +49,6 @@ public class Bank {
                 Method.Close_acc_function();
                 break;
                 case 9:
-                Method.User_function();
-                case 10:
                 System.exit(0);
 
                 default:
