@@ -15,11 +15,10 @@ public class Bank {
             System.out.printf("2.Deposit money\n");
             System.out.printf("3.Withdraw money\n");
             System.out.printf("4.Tranfer money\n");
-            System.out.printf("5.Check balance\n");
-            System.out.printf("6.View transaction history\n");
-            System.out.printf("7.Update account information\n");
-            System.out.printf("8.Close acount\n");
-            System.out.printf("9.Exit\n");
+            System.out.printf("5.View transaction history\n");
+            System.out.printf("6.Update account information\n");
+            System.out.printf("7.Close acount\n");
+            System.out.printf("8.Exit\n");
             System.out.printf("Enter your choice: ");
             Variable.choice=scan.nextInt();
             scan.nextLine();
@@ -28,27 +27,24 @@ public class Bank {
                 Method.Create_Acc_function();
                 break;
                 case 2:
-                Method.Deposite_function();
+                Method.Deposit_function();
                 break;
                 case 3:
                 Method.Withdraw_function();
                 break;
                 case 4:
-                Method.Tranfer_function();
+                Method.Transfer_function();
                 break;
                 case 5:
-                Method.Check_balance_function();
-                break;
-                case 6:
                 Method.View_transaction_history_function();
                 break;
-                case 7:
+                case 6:
                 Method.Update_account_info_function();
                 break;
-                case 8:
+                case 7:
                 Method.Close_acc_function();
                 break;
-                case 9:
+                case 8:
                 System.exit(0);
 
                 default:
