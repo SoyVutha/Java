@@ -69,12 +69,48 @@ public class Pathems {
        
           System.out.println();
       }
-      
+      System.out.print("-----left right pyramid--------------------------\n");
+      for(int i=1;i<=7;i++)
+      {
+        for(int j=i;j<=7;j++)
+        {
+          System.out.print(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+          System.out.print("*");
+        }
+        
+        for (int j = 1; j < i; j++) {
+          System.out.print("*");
+        }
+        System.out.println();
+      }
+      System.out.println(sum(1,10));
 
 
-
-
-
-
+      int i1=10;
+      int i2=30;
+      int[] swap=swap(i1,i2);
+      System.out.println(swap[0]);
+      System.out.println(swap[1]);
     }
+    public static int[] swap(int a,int b)
+    {
+      return new int[]{b,a};
+    }
+    public static int sum(int x , int y)
+    {
+      int answer=0;
+      for(int i=x;i<=y;i++)
+      {
+        answer+=i;
+      }
+      return answer;
+    }
+
+    
+
+
+
 }
