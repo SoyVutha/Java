@@ -243,7 +243,7 @@ public class Method {
                     bank.setDate(Variable.current_date);
 
                     System.out.println("Account updated successfully.");
-                    break; // Exit loop after updating account info
+                    break;
                 }
             }
 
@@ -264,7 +264,7 @@ public class Method {
             Variable.is_close_acc_found = 0;
             for (int i = 0; i < Variable.account_index; i++) {
                 if (Bank_information.Banks[i].getName().equals(username)) {
-                    // Found the account to be closed
+                    
                     for (int j = i; j < Variable.account_index - 1; j++) {
                         Bank_information.Banks[j] = Bank_information.Banks[j + 1];
                     }
