@@ -1,5 +1,7 @@
 package Food;
 
+//public access modifier is not allowed for variables declared inside methods or constructors in Java
+//only one public class per file
 import java.text.SimpleDateFormat;
 
 public class User {
@@ -62,5 +64,66 @@ public class User {
 
     public void setDate(String date) {
         this.date = date;
+    }
+}
+
+class Menu extends User{
+    public String name;
+    public float price;
+    public int id;
+    public String date;
+    public SimpleDateFormat format;
+    public static Menu[] Menus = new Menu[100];
+    //constructor
+    public Menu ()
+    {
+        this.name="";
+        this.price=0.0f;
+        this.id=0;
+        this.date="";
+        this.format=new SimpleDateFormat("yyyy-MM-dd");
+        
+    }
+    
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public SimpleDateFormat getFormat() {
+        return format;
+    }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setFormat(SimpleDateFormat format) {
+        this.format = format;
     }
 }

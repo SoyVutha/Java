@@ -1,13 +1,17 @@
 package Food;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-
-public class Additional_func {
+public class Additional_func 
+{
 
     public static Random rand=new Random();
     public static Scanner scan=new Scanner(System.in);
-
+    public static List<MenuItem> menuItems = new ArrayList<>(); 
 
 
     public static boolean is_username_duplicate(String name)
@@ -72,4 +76,51 @@ public class Additional_func {
             
         }
     }
+
+    public static void view_menu_function() {
+        if (menuItems.isEmpty()) {
+            System.out.println("No menu items available");
+        } else {
+            
+            System.out.printf("%-15s %-30s %-10s\n", "Name", "Description", "Price");
+            System.out.println("--------------------------------------------------------------"); 
+
+            // Print menu items
+            for (MenuItem items : menuItems) {//this is like for each
+                System.out.printf("%-15s %-30s %-10.2f\n", items.getName(), items.getDescription(), items.getPrice());
+            }
+        }
+    }
+
+    static{
+        menuItems.add(new MenuItem("Burger", "A delicious beef burger", 5.99f));
+        menuItems.add(new MenuItem("Pizza", "Cheese pizza with tomato sauce", 8.99f));
+        menuItems.add(new MenuItem("Salad", "Fresh garden salad", 4.99f));
+    }
+    
+        public static class MenuItem {
+        private String name;
+        private String description;
+        private float price;
+        
+        public MenuItem(String name, String description, float price) {
+            this.name = name;
+            this.description = description;
+            this.price = price;
+        }
+    
+        public String getName() {
+            return name;
+        }
+    
+        public String getDescription() {
+            return description;
+        }
+    
+        public float getPrice() {
+            return price;
+        }
+        }
 }
+
+

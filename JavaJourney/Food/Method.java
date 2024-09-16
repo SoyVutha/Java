@@ -95,8 +95,6 @@ public class Method {// check for duplicate user, unique id, acc create date, va
                         {
                             break;
                         }
-
-                        
                     }
                 }
             }
@@ -110,7 +108,7 @@ public class Method {// check for duplicate user, unique id, acc create date, va
     
     public static void View_menu_func()
     {
-
+        Additional_func.view_menu_function();
     }
     
     public static void Add_to_cart_func()
