@@ -4,7 +4,7 @@ package Food;
 //only one public class per file
 import java.text.SimpleDateFormat;
 
-public class User {
+public class User extends Menu {
     public  String name;
     public  float balance;
     public  int id;
@@ -67,63 +67,83 @@ public class User {
     }
 }
 
-class Menu extends User{
-    public String name;
-    public float price;
+class Menu {
+    public String name_menu_input;
+    public float price_menu_price;
     public int id;
-    public String date;
+    public String date_menu_input;
     public SimpleDateFormat format;
+    public static float total;
+    public static int quantity;
     public static Menu[] Menus = new Menu[100];
     //constructor
     public Menu ()
     {
-        this.name="";
-        this.price=0.0f;
+        this.name_menu_input="";
+        this.price_menu_price=0.0f;
         this.id=0;
-        this.date="";
+        this.date_menu_input="";
+        this.total=0.0f;
+        this.quantity=0;
         this.format=new SimpleDateFormat("yyyy-MM-dd");
         
     }
     
     // Getters
-    public String getName() {
-        return name;
+    public String getMenuName() {
+        return name_menu_input;
+    }
+    
+    public static float getTotal() {
+        return total;
     }
 
-    public float getPrice() {
-        return price;
+    public float getMenuPrice() {
+        return price_menu_price;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDate() {
-        return date;
+    public String getMenuDate() {
+        return date_menu_input;
     }
 
     public SimpleDateFormat getFormat() {
         return format;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
     // Setters
-    public void setName(String name) {
-        this.name = name;
+    public void setMenuName(String name_menu_input) {
+        this.name_menu_input = name_menu_input;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setMenuPrice(float price_menu_price) {
+        this.price_menu_price = price_menu_price;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setMenuDate(String date_menu_input) {
+        this.date_menu_input = date_menu_input;
     }
 
     public void setFormat(SimpleDateFormat format) {
         this.format = format;
     }
+    
+    public static void setTotal(float total) {
+        Menu.total = total; 
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+   
 }

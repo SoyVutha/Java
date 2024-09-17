@@ -113,7 +113,58 @@ public class Method {// check for duplicate user, unique id, acc create date, va
     
     public static void Add_to_cart_func()
     {
+        while(true)
+        {   
+            User add_to_cart=new User();
+            System.out.printf("Enter username to add to cart(0 to stop):");
+            String username = scan.nextLine().trim();
+            if(username.equals("0"))
+            {
+                break;
+            }
+            Variable.is_add_to_cart_found=0;
+            for(int i=0;i<Variable.create_acc_index;i++)
+            {
+                User singUser=User.Users[i];
+                if(username.equals(singUser.getName()))
+                {
+                    Variable.is_add_to_cart_found=1;
+                    add_to_cart.setName(username);
+                    while (true) {
+                        System.out.printf("Please enter menu name(0 to stop): ");
+                        String menu_name = scan.nextLine().trim();
+                        if(menu_name.equals("0"))
+                        {
+                            break;
+                        }
+                        //check if the item is valid
+                        Additional_func.MenuItem menuItems=Additional_func.getITem(menu_name);
+                        if(menuItems!=null)
+                        {
+                            int quantity=Additional_func.getQuantity("Enter quantity:");
+                            float price=menuItems.getPrice();
+                            float total=price*quantity;
 
+                            add_to_cart.setMenuName(menu_name);
+                            add_to_cart.setMenuPrice(price);
+                            add_to_cart.setTotal(total);
+                            add_to_cart.setQuantity(quantity);
+                            User.Users[Variable.add_to_cart_index++]=add_to_cart;
+                        }
+                        else{
+                            System.out.printf("Menu item not found\n");
+                        }
+                    
+                    }
+                }                
+            }
+            if(Variable.is_add_to_cart_found==0)
+            {
+                System.out.printf("Account Not Found\n");
+            }
+
+            
+        }
     }
     
     public static void View_cart_func()

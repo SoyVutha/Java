@@ -86,8 +86,9 @@ public class Additional_func
             System.out.println("--------------------------------------------------------------"); 
 
             // Print menu items
-            for (MenuItem items : menuItems) {//this is like for each
-                System.out.printf("%-15s %-30s %-10.2f\n", items.getName(), items.getDescription(), items.getPrice());
+            for (MenuItem parementer : menuItems) {//this is like for each
+                System.out.printf("%-15s %-30s %-10.2f\n", 
+                        parementer.getName(), parementer.getDescription(), parementer.getPrice());
             }
         }
     }
@@ -97,11 +98,11 @@ public class Additional_func
         menuItems.add(new MenuItem("Pizza", "Cheese pizza with tomato sauce", 8.99f));
         menuItems.add(new MenuItem("Salad", "Fresh garden salad", 4.99f));
     }
-    
+        //class
         public static class MenuItem {
-        private String name;
-        private String description;
-        private float price;
+        public String name;
+        public String description;
+        public float price;
         
         public MenuItem(String name, String description, float price) {
             this.name = name;
@@ -121,6 +122,38 @@ public class Additional_func
             return price;
         }
         }
+    public static MenuItem getITem(String name){
+        for(MenuItem parem:menuItems)
+        {
+            if(parem.getName().equals(name))
+            {
+                return parem;
+            }
+        }
+        return null;
+    }
+    public static int getQuantity(String promt)
+    {
+        while(true)
+        {
+            System.out.print(promt);
+            try{
+                String input=scan.nextLine();
+                int quantity=Integer.parseInt(input);
+                if(quantity>0)
+                {
+                    return quantity;
+                }
+                else{
+                    System.out.println("Please enter a positive number");
+                }
+            }
+            catch(NumberFormatException e)
+            {
+                System.out.println("cannot accept String as Quantiy, please enter valid quantity: ");
+            }
+        }
+    }
 }
 
 

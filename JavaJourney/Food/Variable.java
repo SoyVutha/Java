@@ -16,5 +16,8 @@ public class Variable {
     public static int is_deposit_found=0;
     public static int deposit_index=0;
 
+    public static int is_add_to_cart_found=0;
+    public static int add_to_cart_index=0;
+
     
 }
