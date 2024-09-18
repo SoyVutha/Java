@@ -16,8 +16,15 @@ public class Variable {
     public static int is_deposit_found=0;
     public static int deposit_index=0;
 
-    public static int is_add_to_cart_found=0;
+    public static int is_add_to_cart_fount=0;
     public static int add_to_cart_index=0;
+
+    public static int is_place_order_found=0;
+    public static int place_order_index=0;
+
+    public static int is_delete_cart_found=0;
+    public static int delete_cart_index=0;
+
 
     
 }
