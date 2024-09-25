@@ -1,9 +1,5 @@
 package Food;
-
-import java.util.Scanner;
-
-import javax.jws.soap.SOAPBinding.Use;
-
+import java.util.*;
 public class Method {// check for duplicate user, unique id, acc create date, valid date
     public static Scanner scan =new Scanner(System.in);
 
@@ -265,12 +261,69 @@ public class Method {// check for duplicate user, unique id, acc create date, va
     
     public static void View_orders_func()
     {
-
+        while(true)
+        {
+            User view_order=new User();
+            System.out.printf("Enter username to view order(0 to stop)");
+            String username = scan.nextLine().trim();
+            if (username.equals("0")) {
+                break;
+            }
+            Variable.is_view_order_found=0;
+            for(int i=0;i<Variable.place_order_index;i++)
+            {
+                User place_order=User.Users[i];
+                if(place_order.getName().equals(username))
+                {
+                    Variable.is_view_order_found=1;
+                    System.out.println("------------------------------------------");
+                    System.out.printf("%-15s%-15s%-15s%-15s%-15s\n","Username","Product Name","Quantity","Price","Total");
+                    System.out.printf("%-15s%-15s%-15d%-15f%-15\nf",place_order.getName(),place_order.getMenuName(),place_order.getQuantity(),place_order.getMenuPrice(),place_order.getTotal());
+                    break;
+                }
+            }
+            if(Variable.is_view_order_found==0)
+            {
+                System.out.println("User not found");
+            }
+            
+        }
     } 
     
     public static void log_out_func()
     {
+        while(true)
+        {
+            System.out.printf("Enter username to close account(0 to stop): ");
+            String username=scan.nextLine();
+            if(username.equals("0"))
+            {
+                break;
+            }
+            User log_out=new User();
+            Variable.logout_found=0;
+            for(int i=0;i<Variable.login_index;i++)
+            {
 
+                User Login_user=User.Users[i];
+                if(Login_user.equals(username))
+                {
+                    Variable.logout_found=1;
+                    for(int j=i;j<Variable.login_index-1;j++)
+                    {
+                        User.Users[j]=User.Users[j+1];
+                    }
+                    User.Users[Variable.login_index-1]=null;
+                    Variable.login_index--;
+                    System.out.println("Account closed");
+                    break;
+                }
+            }
+            if(Variable.logout_found==0)
+            {
+                System.out.println("User not found");
+            }
+        }
     }
     
     

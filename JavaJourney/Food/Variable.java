@@ -25,6 +25,12 @@ public class Variable {
     public static int is_delete_cart_found=0;
     public static int delete_cart_index=0;
 
+    public static int is_view_order_found=0;
+    public static int view_order_index=0;
+
+    public static int logout_found=0;
+    public static int logout_index=0;
+
 
     
 }
