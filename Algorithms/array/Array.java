@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.array;
 //array can store same type of variables
 //list store different type
 public class Array {

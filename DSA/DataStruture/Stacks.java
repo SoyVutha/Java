@@ -1,4 +1,4 @@
-package DSA;
+package DSA.DataStruture;
 
 import java.util.Stack;
 public class Stacks {
