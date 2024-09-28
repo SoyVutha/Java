@@ -100,7 +100,7 @@ public class MultiArray {
        }
        System.out.println("-------------------------------------");
        Display(array3);
-       System.out.println("-------------------------------------");
+       
        
         
     }
@@ -195,24 +195,97 @@ public class MultiArray {
 
     public static void Total_per_region(int[][][] array)
     {
-        System.out.println();
+        System.out.println("-------------------------");
         int person = 5;
         int region = 4;
         int month = 3;
-        for(int i=0;i<region;i++)
+        double[] array_average=new double[4];
+        double[] copy_array_average = new double[4];
+       for(int i=0;i<region;i++)
+       {
+        System.out.println("\nRegion "+(i+1));
+        int sum=0;
+        for(int j=0;j<person;j++)
         {
-            System.out.print("Total for region: "+(i+1)+" : ");
-            int sum=0;
-            double average;
-            for(int j=0;j<person;j++)
+            for(int k=0;k<month;k++)
             {
-                for(int k=0;k<month;k++)
+                sum+=array[k][j][i];
+            }
+        }
+        double average=(double) sum/(person*month);
+        System.out.println("Total sale = "+sum);
+        System.out.printf("Average sale = %.2f \n",average);
+        array_average[i]=average;
+        copy_array_average=Arrays.copyOf(array_average,array_average.length);
+        
+       }
+       System.out.println("---------------------------------");
+       
+       Arrays.sort(copy_array_average);
+       double lowest_average=copy_array_average[0];
+       double highest_average=copy_array_average[3];
+       
+       for(double sorted: copy_array_average)
+       {
+        for(int i=0;i<array_average.length;i++)
+        {
+            if(array_average[i]==sorted )
+            {
+                if(array_average[i]==lowest_average)
                 {
-                    sum+=array[k][j][i];
+                    System.out.printf("Region "+(i+1)+" has the lowest average sale of %.2f\n",lowest_average);
+                }
+                if(array_average[i]==highest_average)
+                {
+                    System.out.printf("Region "+(i+1)+" has the highest average sale of %.2f\n",highest_average);
                 }
             }
-            System.out.println(sum);
         }
+       }
+       System.out.println("---------------------------------------");
+        best_performace(array);
     }
+
+    public static void best_performace(int[][][] array)
+    {
+        int person=5;
+        int month=3;
+        int region=4;
+        int[] total_person_array=new int[5];
+        for(int i=0;i<person;i++)
+        {
+            int sum=0;
+            for(int j=0;j<month;j++)
+            {
+                for(int k=0;k<region;k++)
+                {
+                    sum+=array[j][i][k];
+                }
+            }
+        total_person_array[i]=sum;
+      
+        }
+
+      int[] copy_total_person_array=Arrays.copyOf(total_person_array, total_person_array.length);
+        Arrays.sort(copy_total_person_array);
+        int highest_total=copy_total_person_array[4];
+        for(int sorted: copy_total_person_array)
+        {
+            for(int i=0;i<total_person_array.length;i++)
+            {
+                if(total_person_array[i]==sorted)
+                {
+                    if(total_person_array[i]==highest_total)
+                    {
+                        System.out.printf("Saleperson %d with the highest total sale of %d\n",(i+1),highest_total);
+                    }
+                        
+                
+                }
+            }
+        }
     
+    
+    
+    }
 }
