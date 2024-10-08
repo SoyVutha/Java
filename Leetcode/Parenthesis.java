@@ -37,3 +37,5 @@ public class Parenthesis {
     }    
 }
 
+//the s[i] is use to get the index
+// the s.charAt[i] is use to get the value at the index i
