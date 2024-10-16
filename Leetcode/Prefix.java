@@ -1,5 +1,7 @@
 package Leetcode;
 
+import java.util.ArrayList;
+
 public class Prefix {
      public String longestCommonPrefix(String[] strs) {
         String prefix = strs[0];
@@ -9,6 +11,16 @@ public class Prefix {
             }
         }
         return prefix;
+    }
+    public static void Prefix(String[] strs){
+        String prefix = strs[0];
+        for(int i=1;i<strs.length;i++)
+        {
+            if(strs[i].indexOf(prefix)!=0)
+            {
+                prefix =prefix.substring(0,prefix.length()-1);
+            }
+        }
     }
     
 }

@@ -34,8 +34,34 @@ public class Parenthesis {
             }
         }
         return stack.isEmpty();   
+    }
+    public static boolean isvalid(String s){
+        if(s.length()<2) return false;
+        Stack<Character> list=new Stack<>();
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='('){
+                list.push(')');
+            }
+            else if(s.charAt(i)=='{'){
+                list.push('}');
+                }
+            else if(s.charAt(i)=='['){
+                list.push(']');
+            }
+            else{
+                if(s.charAt(i)!=list.pop()||list.isEmpty()) 
+                {
+                    return false;
+                }
+            }
+        }
+        return list.isEmpty();
+
+
     }    
 }
 
 //the s[i] is use to get the index
 // the s.charAt[i] is use to get the value at the index i
+//the pop will pop that peak value, it target the peek value

@@ -42,4 +42,17 @@ var twoSum = function(nums, target)
             }
         }
     }
+
+    let array4=[4,5,6,7,8];
+    let target4=12;
+    for(let i=0;i<array4.length;i++)
+    {
+        for(letj+1 ;j<array4.length;j++)
+        {
+            if(array4[i]+array4[j+1]===target4)
+            {
+                return [i,j];
+            }
+        }
+    }
 };

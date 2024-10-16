@@ -1,0 +1,17 @@
+1. Class container everything (blueprint)
+2. Object is just instance of the Class
+3. Blueprint = a place to store items inside it 
+4. The public acess modifier = can be use from all file
+5. The private access modifier = cannot be used from all file 
+6. constructor is not a return type
+7. constructor used to set the default value
+8. constructor have 2 tpye: no parameter, have parameter 
+9. In Java, each public class must be in its own file named after that class.
+10. Linklist and ListNode is the same concept, but the linklist is built in , while the listnode is needed to be manual writing
+11. array[i] => this will get the value at index i of the array
+12. get(i) => this will get the value at index i of the ArrayList
+13. charAt(i) => this will get the value at index i of the string 
+14. Hashmap is a type of data strucuture that has both the head and value
+15. indexOf use to find the index of the string or character
+16. the listnode use val to access value
+17. for(int i=0;list1!=null;i++) => this is how to loop through the listnode

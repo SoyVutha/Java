@@ -27,5 +27,22 @@ public class Palindrome {
         }
         return true;
     }   
+    
+    public static boolean isitPalindrome(int x) {
+        if (x < 0)
+            return false;
+        String toString = Integer.toString(x);
+        String Reverse = new StringBuilder(toString).reverse().toString();
+        if (Reverse.equals(toString) ) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 // the arraylist cannot use the array1[i][j]=array2[i][j] style
+
+
+
+

@@ -31,4 +31,20 @@ public class MergeArray {
         Collections.sort(Duck);
 
     }
+
+    public static void MergeList(ListNode list1, ListNode list2){
+        LinkedList<Integer> list=new LinkedList<>();
+        for(int i=0;list1!=null;i++)
+        {
+            list.push(list1.val);
+            list1=list1.next;
+        }
+        for(int i=0;list2!=null;i++)
+        {
+            list.push(list2.val);
+            list2=list2.next;
+        }
+        Collections.sort(list);
+
+    }
 }
