@@ -11,7 +11,12 @@
 11. array[i] => this will get the value at index i of the array
 12. get(i) => this will get the value at index i of the ArrayList
 13. charAt(i) => this will get the value at index i of the string 
-14. Hashmap is a type of data strucuture that has both the head and value
+14. Hashmap is a type of data strucuture that has both the head and value (Note, data)
 15. indexOf use to find the index of the string or character
 16. the listnode use val to access value
 17. for(int i=0;list1!=null;i++) => this is how to loop through the listnode
+18. Collections.sort => use for data strucuture
+19. Integer.sort => use for array
+20. The variable inside one file, cannot be access to another file directly, we have to use the getter
+21. when pasting the obejct to a method, memory will be paste
+22. Encapulation -> the concept of using setter and getter, we protect the data , but the another file can access and assign value to the data, but wont affect the parent 

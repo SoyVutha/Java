@@ -35,6 +35,7 @@ public class Parenthesis {
         }
         return stack.isEmpty();   
     }
+    
     public static boolean isvalid(String s){
         if(s.length()<2) return false;
         Stack<Character> list=new Stack<>();

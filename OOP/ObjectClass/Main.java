@@ -1,9 +1,8 @@
+package OOP.ObjectClass;
 public class Main {
     public static void main(String[] args) {
-        Class instance = new Class();
+        TestClass instance = new TestClass();
         instance.getAge();
         instance.SayHi();
-        
-
     }   
 }

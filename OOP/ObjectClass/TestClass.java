@@ -1,4 +1,5 @@
-public class Class {
+package OOP.ObjectClass;
+public class TestClass {
     String name="Vutha";
     int age=24;
     private String Surname="Duck";

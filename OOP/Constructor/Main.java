@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         // Constructor with no parameter
         Class duck=new Class();
+        //constructor with parameter 
         Class2 Quack=new Class2();
         System.out.println("Age"+Quack.userage);
         Quack.Info("Quack", 98);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Prefix {
      public String longestCommonPrefix(String[] strs) {
         String prefix = strs[0];
+
         for (int i = 0; i < strs.length; i++) {
             while (strs[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
@@ -12,7 +13,7 @@ public class Prefix {
         }
         return prefix;
     }
-    public static void Prefix(String[] strs){
+    public static String Prefix(String[] strs){
         String prefix = strs[0];
         for(int i=1;i<strs.length;i++)
         {
@@ -21,6 +22,7 @@ public class Prefix {
                 prefix =prefix.substring(0,prefix.length()-1);
             }
         }
+        return prefix;
     }
     
 }

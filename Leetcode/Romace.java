@@ -11,6 +11,7 @@ public class Romace {
         array.put('D', 500);
         array.put('M', 1000);
         int result = 0;
+
         for (int i = 0; i < s.length(); i++) {
             int current = s.charAt(i);
             if (i + 1 < s.length() && current < s.charAt(i + 1)) {
@@ -23,7 +24,7 @@ public class Romace {
         return result;
     }
     public static int TurnToNumber(String s){
-        HashMap map=new HashMap<>();
+        HashMap<Character,Integer> map=new HashMap<>();
         map.put('I',1);
         map.put('V',5);
         map.put('X',10);
