@@ -12,9 +12,10 @@ public class PlusOne {
         }
         sum = sum + 1;
         String int_toString = Integer.toString(sum);
-        int[] array = new int[int_toString.length];
+        int[] array = new int[int_toString.length()];
         for (int i = 0; i < int_toString.length(); i++) {
-            array[i] = Integer.parseInt(int_toString.charAt(i));
+            array[i] = Character.getNumericValue(int_toString.charAt(i));
+
         }
 
         for (int i = 0; i < array.length; i++) {

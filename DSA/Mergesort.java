@@ -1,4 +1,4 @@
-package DSA.DataStruture;
+package DSA;
 
 public class Mergesort {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@
 6. constructor is not a return type
 7. constructor used to set the default value
 8. constructor have 2 tpye: no parameter, have parameter 
-9. In Java, each public class must be in its own file named after that class.
+9.  In Java, each public class must be in its own file named after that class.
 10. Linklist and ListNode is the same concept, but the linklist is built in , while the listnode is needed to be manual writing
 11. array[i] => this will get the value at index i of the array
 12. get(i) => this will get the value at index i of the ArrayList
