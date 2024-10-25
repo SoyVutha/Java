@@ -20,3 +20,4 @@
 20. The variable inside one file, cannot be access to another file directly, we have to use the getter
 21. when pasting the obejct to a method, memory will be paste
 22. Encapulation -> the concept of using setter and getter, we protect the data , but the another file can access and assign value to the data, but wont affect the parent 
+23. Wrapper = Non primitive

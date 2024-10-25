@@ -3,7 +3,7 @@ import java.lang.reflect.Array;
 import java.util.*;;
     //Binary = can only be used in sorted value
     // Binary search = should only be used for searching data not string
-    //Binary search = half of the value of eliminated each "step"
+    //Binary search = half of the value of eliminated got each "step"
 public class BinarySearch {
     public static void main(String[] args) {
         int[] array={2,4,7,8,9,1,3,5,6};
