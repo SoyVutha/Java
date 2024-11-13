@@ -21,3 +21,9 @@
 21. when pasting the obejct to a method, memory will be paste
 22. Encapulation -> the concept of using setter and getter, we protect the data , but the another file can access and assign value to the data, but wont affect the parent 
 23. Wrapper = Non primitive
+24. The super in java is used to override the constructor of the parent 
+25. abstract is a modifier used to indicate that a class or method is incomplete. 
++Abstract Method: You want to define some common methods that many classes will share, but leave certain methods for each class to define
++Abstract Class: An abstract class is a class that can't be instantiated directly. You can't create an object of an abstract class on its own
+26. Abstract method must be in the Abstract Class
+
