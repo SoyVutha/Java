@@ -7,10 +7,12 @@ public class Method {
     public static Scanner scan=new Scanner(System.in);
     public static Customer customer=new Customer();
     public static int Customer_index=0;
-    
-    public static List<Payment> paymentsHistoryList=new ArrayList<>();
+
+    public static List<Payment> paymentsHistoryList=new ArrayList<>(); // To make sure only Payment objects are
+                                                                         // allowed in this list.
 
     public static int is_make_found=0;
+    public static boolean is_monthly_found=false;
 
 
     public static void applyForLoan(){
@@ -78,10 +80,45 @@ public class Method {
     }
 
     public static void monthlyPayment(){
+        while(true){
+            System.out.printf("Enter user name (0 to stop) : ");
+            String username=scan.nextLine();
+            if(username.equals("0")){break;}
+            for(int i=0;i<Customer_index;i++)
+            {
+                if(username.equals(customer.getName()))
+                {
+                    is_monthly_found=true;
+                    double annualInterestRate=Helper.getTemp("Enter annual interest rate : ");
+                    int loanTerm=Helper.getLoanTerm("Enter loan repayment term : ");  
+                    Helper.monthlyPaymentList(annualInterestRate,loanTerm,customer.getLoan());  
+                }   
+            }
+            if(is_monthly_found=false){
+                System.out.println("User not found");
+            }
+        }
 
     }
 
     public static void acitveLoan(){
+        System.out.printf("%-15s%-15s%-15s\n", "Customer", "Amount", "ID");
+        boolean hasactive=false;
+        for(int i=0;i<Customer_index;i++)
+        {
+            if(customer.getLoan()>0)
+            {
+                hasactive=true;
+                System.out.printf("%-15s%-15.2f%-15s\n",customer.getName(),customer.getLoan(),customer.getID());
+            }
+        }
+        if(hasactive==false){
+            System.out.println("No active loan");
+        }
+        
+        
+        
+        
         
     }
 }

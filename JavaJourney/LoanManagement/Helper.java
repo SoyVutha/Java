@@ -116,5 +116,33 @@ public class Helper extends Method {
         }
     }
 
+    public static int getLoanTerm(String prompt){
+      while (true) {
+        try{
+            System.out.printf(prompt);
+            int monthlyterm=scan.nextInt();
+            scan.nextLine();
+            if(monthlyterm>0){return monthlyterm;}
+            else{System.out.println("Repayment term cannot be negative. ");}
+        }
+        catch(Exception e){
+            System.out.println("Repayment term cannot be non numberic ");
+            scan.nextLine();
+        }
+      }
+    }
+
+    public static double monthlyPaymentList(double interestrate, int loanTerm,double loanamount){
+        double monthlyInterestRate = interestrate / 12;
+        int totalpayment=loanTerm*12;
+        double monthlyPay=loanamount*Math.pow(1+monthlyInterestRate, totalpayment)/(Math.pow(1+monthlyInterestRate, totalpayment)-1);
+            
+        return monthlyPay;
+
+
+
+
+    }
+
 
 }

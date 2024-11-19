@@ -5,6 +5,7 @@ public class Payment {
     private double amount;
     private Date date;
 
+
     public Payment(String name,double amount){
         this.CustomerName=name;
         this.amount=amount;
@@ -21,6 +22,7 @@ public class Payment {
     public Date getdate(){
         return date;
     }
+    
     
 
 }
