@@ -4,13 +4,13 @@ public class Method {
     public static Scanner scan=new Scanner(System.in);
     public static void studentmanagement(){
         while(true){
-            System.out.println("1. Add Student");
+            System.out.println("\n\n1. Add Student");
             System.out.println("2. Delete Student");
             System.out.println("3. Student's Attandance");
             System.out.println("4. Display Student");
             System.out.println("5. Update Student");
             System.out.println("6. Exit");
-            System.out.println("Enter your choice");
+            System.out.printf("Enter your choice : ");
             int choice=scan.nextInt();
             switch(choice){
                 case 1:
@@ -23,10 +23,10 @@ public class Method {
                 Method2.studentattandance();
                 break;
                 case 4:
-                Method2.updatestudent();
+                Method2.displaystudent();
                 break;
                 case 5:
-                Method2.displaystudent();
+                Method2.updatestudent();
                 break;
                 case 6:
                 System.out.println("Exiting");

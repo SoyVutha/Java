@@ -26,4 +26,6 @@
 +Abstract Method: You want to define some common methods that many classes will share, but leave certain methods for each class to define
 +Abstract Class: An abstract class is a class that can't be instantiated directly. You can't create an object of an abstract class on its own
 26. Abstract method must be in the Abstract Class
+27. Break = exit the loop 
+28. Return = if there is 2 loop, the return exit all the loop 
 
