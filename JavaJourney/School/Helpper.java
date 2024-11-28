@@ -5,12 +5,12 @@ public class Helpper {
     public static Scanner scan=new Scanner(System.in);
     public static ArrayList<String> usernames=new ArrayList<>();
     public static ArrayList<Integer> ids=new ArrayList<>();
+    public static ArrayList<String> teachernames=new ArrayList<>();
     public static Random rand=new Random();
     public static SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy MM dd");
 
 
     public static boolean isDuplicate(String name){
-        boolean isDuplicated=false;
         if(usernames.contains(name)){return true;}
         else{usernames.add(name);return false;}
     }
@@ -35,8 +35,8 @@ public class Helpper {
     public static int generateID(){
         int id=0;
         do{
-            id=rand.nextInt(Integer.MAX_VALUE-1)+1;
-            System.out.println("Student ID : "+ id);
+            id= rand.nextInt(9000) + 1000;
+            System.out.println("ID : "+ id); 
         }
         while(isIdduplicate(id));
         return id;
@@ -61,6 +61,77 @@ public class Helpper {
             } catch (Exception e) {
                 System.out.println("Date is not valid: " + e.getMessage());
             }
+        }
+    }
+
+    public static boolean isTeacherNameDuplicate(String name) {
+        if (teachernames.contains(name)) {
+            return true;
+        } else {
+            teachernames.add(name);
+            return false;
+        }
+    }
+
+    public static String setContactNumber(String prompt){
+        while (true) {
+            try{
+                System.out.printf(prompt);
+                String contact = scan.nextLine();
+                if(isvalidphone(contact)){
+                    return contact;
+                }
+                else{
+                    System.out.println("Invalid phone number");
+                }
+            }
+            catch(Exception e){
+                System.out.println("Invalid phone number");
+            }
+        }
+    }
+
+    public static boolean isvalidphone(String contact){
+        return contact.matches("\\d{10}");
+    }
+
+    public static String setEmail(String prompt){
+        while (true) {
+            try{
+                System.out.printf(prompt);
+                String email = scan.nextLine();
+                if(isvalidemail(email)){
+                    return email;
+                }
+                else{
+                    System.out.println("Invalid email");
+                }
+            }catch(Exception e){
+                System.out.println("Invalid email");
+            }
+        }
+    }
+
+    public static boolean isvalidemail(String promt){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return promt.matches(emailRegex);
+    }
+
+    public static String enrolldate(String prompt){
+        while (true) {
+            try{
+                System.out.printf(prompt);
+                String date = scan.nextLine();
+                if(date.isEmpty()){
+                    return enrolldate(prompt);
+                }
+                dateFormat.parse(date);
+                return date;
+            }
+            catch(Exception e){
+                System.out.println("Invalid date"+e.getMessage());
+            }
+            
         }
     }
 

@@ -40,7 +40,41 @@ public class Method {
         }
     }
     
-    public static void teachermanagement(){}
+    public static void teachermanagement(){
+        while (true) {
+            System.out.println("\n\n1. Add Teacher");
+            System.out.println("2. Delete Teacher");
+            System.out.println("3. Assign Class/Subject");
+            System.out.println("4. Display Teacher Details");
+            System.out.println("5. Manage Leaves");
+            System.out.println("6. Exit");
+            System.out.printf("Enter your choice: ");
+            int choice = scan.nextInt();
+            switch (choice) 
+            {
+                case 1:
+                Method2.addteacher();
+                break;
+                case 2:
+                Method2.deleteteacher();
+                break;
+                case 3:
+                Method2.assignclass();
+                break;
+                case 4:
+                Method2.displayteacher();
+                break;
+                case 5:
+                Method2.leavemanagement();
+                break;
+                case 6:
+                System.out.println("Exiting");
+                System.exit(0);
+                default:
+                System.out.println("Unvalid choice");
+            }
+        }
+    }
 
     public static void classmanagement(){}
 

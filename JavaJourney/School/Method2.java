@@ -4,7 +4,8 @@ public  class Method2 {
     public static Scanner scan=new Scanner(System.in);
      
     public static List<MainClass.Student> students=new ArrayList<>();
-    public static int studentindex=0;
+    public static List<MainClass.Teacher> teachers = new ArrayList<>();
+
 
     public static void Addstudent(){
         while(true){
@@ -21,7 +22,7 @@ public  class Method2 {
 
             int id=Helpper.generateID();student.setId(id);
             students.add(student);
-            studentindex++;
+
         }
     }
 
@@ -34,7 +35,7 @@ public  class Method2 {
             if(id==0){break;}
            
             for(int i=0;i<students.size();i++){
-                if(students.get(i).getId()==id){students.remove(i);studentindex--;System.out.println("Student successfully removed");isStudentIdFonund=true;break;}
+                if(students.get(i).getId()==id){students.remove(i);System.out.println("Student successfully removed");isStudentIdFonund=true;break;}
             }
             if(!isStudentIdFonund){System.out.println("Student id not found");            
         }
@@ -105,11 +106,61 @@ public  class Method2 {
     }
 
     public static void displaystudent(){
-        boolean isDisplayFound=false;
         System.out.printf("\n\n%-15s%-15s%-15s\n","Name","ID","Age");
         for(int i=0;i<students.size();i++){
             System.out.printf("\n%-15s%-15s%-15s\n",students.get(i).getName(),students.get(i).getId(),students.get(i).getAge());
         }
     }
+
+    // -------------------------------------------------------------------------------------------------------------------------------------------
+
+    public static void addteacher(){
+        while(true){
+            MainClass.Teacher teacher=new MainClass.Teacher();
+            System.out.printf("Enter Teacher's name (0 to stop) : ");
+            String name=scan.nextLine();
+            if(name.equals("0")){break;}
+            if(Helpper.isTeacherNameDuplicate(name)){
+                System.out.println("Teacher already exists");
+            }
+            teacher.setName(name);
+            int TeacherId=Helpper.generateID();
+            teacher.setId(TeacherId);
+
+            String number = Helpper.setContactNumber("Enter phone number : ");
+            teacher.setContactNumber(number);
+            String email = Helpper.setEmail("Enter email : ");
+            teacher.setEmail(email);
+            String enrolldate=Helpper.enrolldate("Enter Teacher's joined date : ");
+            teacher.setJoiningDate(enrolldate);
+            teachers.add(teacher);
+
+        }
+    }
+    
+    public static void deleteteacher(){
+        while(true){
+            boolean isDeletefound=false;
+            System.out.printf("Enter teacher's ID to remove (0 to stop) : ");
+            int id = scan.nextInt();
+            scan.nextLine();
+            if(id==0){break;}
+            for(int i=0;i<teachers.size();i++){
+                if(teachers.get(i).getId()==id){
+                    isDeletefound=true;teachers.remove(i);System.out.println("Teacher had been successfully remove");break;
+                }
+            }
+            if(!isDeletefound){
+                System.out.println("Teacher not found");
+            }
+        }
+    }
+
+    public static void assignclass(){}
+
+    public static void displayteacher(){}
+
+    public static void leavemanagement(){}
 }
+
 

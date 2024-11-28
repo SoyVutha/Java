@@ -24,9 +24,36 @@ public class MainClass {
         public Boolean getAttendance(String date) {return attandance.get(date);}
     }
 
-    public static class teacher {
+    public static class Teacher {
+        private int id; 
+        private String name; 
+        private String designation;  
+        private String contactNumber;
+        private String email; 
+        private String joiningDate; 
+
+        public Teacher(){this.id=0;this.designation="";this.contactNumber="";this.email="";this.joiningDate="";}
+        
+        public int getId() {return id;}
+        public void setId(int id) {this.id = id;}
+        public String getName() {return name;}
+        public void setName(String name) {this.name = name;}
+        public String getDesignation() {return designation;}
+        public void setDesignation(String designation) {this.designation = designation;}
+        public String getContactNumber() {return contactNumber;}
+        public void setContactNumber(String contactNumber) {this.contactNumber = contactNumber;}
+        public String getEmail() {return email;}
+        public void setEmail(String email) {this.email = email;}
+        public String getJoiningDate() {return joiningDate;}
+        public void setJoiningDate(String joiningDate) {this.joiningDate = joiningDate;}
+
+
+
+
 
     }
+
+
 
     public static class attendance {
 
