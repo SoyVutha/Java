@@ -24,33 +24,41 @@ public class MainClass {
         public Boolean getAttendance(String date) {return attandance.get(date);}
     }
 
+    public static class Class{
+        private String className;
+        private int section;
+
+        public Class(String className,int section){this.className=className;this.section= section;};
+        public String getClassName() {return className;}
+        public void setClassname(String className){this.className=className;}
+        public int getSection() {return section;}
+        public void setSection(int section) {this.section = section;}
+        public void detail(){
+            System.out.println("Class Name: "+className+"Class section"+section);
+        }
+    }
     public static class Teacher {
         private int id; 
         private String name; 
-        private String designation;  
         private String contactNumber;
         private String email; 
         private String joiningDate; 
+        private List<Class> assignClasses=new ArrayList<>();
 
-        public Teacher(){this.id=0;this.designation="";this.contactNumber="";this.email="";this.joiningDate="";}
+        public Teacher(){this.id=0;this.contactNumber="";this.email="";this.joiningDate="";}
         
         public int getId() {return id;}
         public void setId(int id) {this.id = id;}
         public String getName() {return name;}
         public void setName(String name) {this.name = name;}
-        public String getDesignation() {return designation;}
-        public void setDesignation(String designation) {this.designation = designation;}
         public String getContactNumber() {return contactNumber;}
         public void setContactNumber(String contactNumber) {this.contactNumber = contactNumber;}
         public String getEmail() {return email;}
         public void setEmail(String email) {this.email = email;}
         public String getJoiningDate() {return joiningDate;}
         public void setJoiningDate(String joiningDate) {this.joiningDate = joiningDate;}
-
-
-
-
-
+        public List<Class> getAssigClasses(){return assignClasses;}
+        public void setAssignClass(List<Class> assigClasses){this.assignClasses=assigClasses;}
     }
 
 

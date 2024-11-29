@@ -1,11 +1,15 @@
 package School;
 import java.util.*;
+
+import School.MainClass.Class;
+import School.MainClass.Teacher;
 public  class Method2 {
     public static Scanner scan=new Scanner(System.in);
      
     public static List<MainClass.Student> students=new ArrayList<>();
     public static List<MainClass.Teacher> teachers = new ArrayList<>();
-
+    public static List<MainClass.Class> classes=new ArrayList<>();
+ 
 
     public static void Addstudent(){
         while(true){
@@ -117,7 +121,7 @@ public  class Method2 {
     public static void addteacher(){
         while(true){
             MainClass.Teacher teacher=new MainClass.Teacher();
-            System.out.printf("Enter Teacher's name (0 to stop) : ");
+            System.out.printf("\n\nEnter Teacher's name (0 to stop) : ");
             String name=scan.nextLine();
             if(name.equals("0")){break;}
             if(Helpper.isTeacherNameDuplicate(name)){
@@ -131,7 +135,7 @@ public  class Method2 {
             teacher.setContactNumber(number);
             String email = Helpper.setEmail("Enter email : ");
             teacher.setEmail(email);
-            String enrolldate=Helpper.enrolldate("Enter Teacher's joined date : ");
+            String enrolldate=Helpper.enrolldate("Enter Teacher's joined date(YYYY MM Dd) : ");
             teacher.setJoiningDate(enrolldate);
             teachers.add(teacher);
 
@@ -156,7 +160,64 @@ public  class Method2 {
         }
     }
 
-    public static void assignclass(){}
+    public static void assignclass(){
+        boolean isAssignFound=false;boolean isAssignClassFound=false;
+        MainClass.Class history=new MainClass.Class("History", 101);
+        MainClass.Class English = new MainClass.Class("English I", 102);
+        MainClass.Class math = new MainClass.Class("Math I", 201);
+        MainClass.Class Critical_Thinking = new MainClass.Class("Critical Thinking", 301);
+        MainClass.Class Computer_Science = new MainClass.Class("Computer Science", 401);
+        classes.add(Computer_Science);classes.add(history);classes.add(English);classes.add(math);classes.add(Critical_Thinking);
+        while(true){
+            if(teachers.isEmpty()){return;}
+            for(int i=0;i<teachers.size();i++){
+                System.out.println("Teacher name : "+teachers.get(i).getName()+" Teacher ID : "+teachers.get(i).getId());
+            }
+            System.out.printf("Enter teacher's ID to assign class (0 to stop) : ");
+            int id = scan.nextInt();scan.nextLine();
+            if(id==0){break;}
+            Teacher teach=null;
+            for(int i=0;i<teachers.size();i++){
+                if(teachers.get(i).getId()==id){
+                    isAssignFound=true;
+                    teach=teachers.get(i);
+                    break;
+                }
+            }
+            if(!isAssignFound){
+                System.out.println("Teacher not found");
+                continue;
+            }
+            System.out.println("\nAvailable classes : ");
+            for(int i=0;i<classes.size();i++){
+                System.out.println("Class name : "+classes.get(i).getClassName()+" Section : "+classes.get(i).getSection());
+            }
+
+            System.out.printf("Enter class section to assign teacher (0 to stop) : ");
+            int section = scan.nextInt();scan.nextLine();
+            if(section==0){break;}
+            MainClass.Class Cls=null;
+            for(int i=0;i<classes.size();i++){
+                if(classes.get(i).getSection()==section){
+                    isAssignClassFound=true;
+                    Cls=classes.get(i);
+                    break;
+                }
+            }
+            if(!isAssignClassFound){
+                System.out.println("Class not found");
+            }
+            if(Cls==null){
+                System.out.println("Class not found ");continue;
+            }
+            teach.getAssigClasses().add(Cls);
+
+            System.out.println("Class " + Cls.getClassName() + " assigned to teacher " + teach.getName());
+            break;
+            
+        }
+
+    }
 
     public static void displayteacher(){}
 
