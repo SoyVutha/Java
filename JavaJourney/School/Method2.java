@@ -219,9 +219,34 @@ public  class Method2 {
 
     }
 
-    public static void displayteacher(){}
-
-    public static void leavemanagement(){}
+    public static void displayteacher(){
+        System.out.printf("%-10s %-10s %-20s %-20s\n","Name","ID","Email","Phone Number");
+        for(int i=0;i<teachers.size();i++){
+            System.out.printf("%-10s %-10s %-20s %-20s\n",teachers.get(i).getName(),teachers.get(i).getId(),teachers.get(i).getEmail(),teachers.get(i).getContactNumber());
+        }
+    }
+    public static void leavemanagement(){
+        boolean isLeaveFound=false;
+        while(true){
+            System.out.printf("Enter Teacher's ID (0 to stop) : ");
+            int Id = scan.nextInt();scan.nextLine();
+            if(Id==0){break;}
+            for(int i=0;i<teachers.size();i++)
+            {
+                if(teachers.get(i).getId()==Id){
+                    isLeaveFound=true;
+                    System.out.printf("Enter date : ");String date = scan.nextLine();
+                    System.out.printf("Enter reason : ");String reason = scan.nextLine();
+                    teachers.get(i).requestLeave(date, reason);
+                    System.out.println("Leaved Successfully");
+                    break;
+                }
+            }
+            if(!isLeaveFound){
+                System.out.println("Teacher not found");
+            }
+        }
+    }
 }
 
 

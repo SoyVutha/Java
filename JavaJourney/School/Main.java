@@ -7,7 +7,7 @@ public class Main {
         while(true){
             System.out.println("1. Student Management");
             System.out.println("2. Teacher Management");
-            System.out.println("3. Class Management");
+            System.out.println("3. Class Management"); 
             System.out.println("4. Attendance Management");
             System.out.println("5. Exam and Grade Mangement");
             System.out.println("6. General Utilities");

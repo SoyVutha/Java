@@ -44,6 +44,7 @@ public class MainClass {
         private String email; 
         private String joiningDate; 
         private List<Class> assignClasses=new ArrayList<>();
+        private Map<String , String> LeaveRecord= new HashMap<>();
 
         public Teacher(){this.id=0;this.contactNumber="";this.email="";this.joiningDate="";}
         
@@ -59,6 +60,22 @@ public class MainClass {
         public void setJoiningDate(String joiningDate) {this.joiningDate = joiningDate;}
         public List<Class> getAssigClasses(){return assignClasses;}
         public void setAssignClass(List<Class> assigClasses){this.assignClasses=assigClasses;}
+
+        public void requestLeave(String date, String reason){
+            LeaveRecord.put(date,"Pending : "+reason);
+        }
+
+        public void updateLeave(String date, String reason){
+            if(LeaveRecord.containsKey(date)){
+                LeaveRecord.put(date, reason);
+            }
+        }
+
+        public Map<String,String> getLeaveRecord(){
+            return LeaveRecord;
+        }
+
+        
     }
 
 
