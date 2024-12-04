@@ -1,6 +1,5 @@
-package School;
-import java.util.*;
 
+import java.util.*;
 import School.MainClass.Class;
 import School.MainClass.Teacher;
 public  class Method2 {
@@ -246,6 +245,96 @@ public  class Method2 {
                 System.out.println("Teacher not found");
             }
         }
+    }
+    // -------------------------------------------------------------------------------------------------------------------------------------------
+    public static void addClass(){
+        while(true)
+        {
+            System.out.printf("Enter Class Name (0 to stop) : ");
+            String name = scan.nextLine();
+            if(name.equals("0")){break;}
+            System.out.printf("Enter class section : ");
+            int section= scan.nextInt();scan.nextLine();
+            Class Cls = new Class(name,section);
+            if(classes.contains(Cls)){
+                System.out.println("Class already exists");
+            }
+            else{
+                classes.add(Cls);
+            }
+        }
+}
+
+    public static void deleteclass(){
+        boolean isDeleteClassFound=false;
+        while(true){
+            System.out.printf("Enter Class section (0 to stop) : ");
+            int section = scan.nextInt();scan.nextLine();
+            if(section==0){break;}
+            for(int i=0;i<classes.size();i++)
+            {
+                if(classes.get(i).getSection()==section){
+                    isDeleteClassFound=true;
+                    classes.remove(i);
+                    break;
+                }
+            }
+            if(!isDeleteClassFound){
+                System.out.println("Class not found");
+            }
+        }
+    }
+
+    public static void AssignStudent() {
+        boolean is_Class_Found=false;
+        boolean is_Student_Found=false;
+        while (true) {
+            System.out.printf("Enter Class section (0 to stop) : ");
+            int section = scan.nextInt();
+            scan.nextLine();
+            if (section == 0) {
+                break;
+            }
+            MainClass.Class targetClass=null;
+            for (int i = 0; i < classes.size(); i++) {
+                if (classes.get(i).getSection() == section) {
+                    is_Class_Found=true;
+                    targetClass = classes.get(i);
+                    break;
+                }
+            }
+            if(!is_Class_Found){
+                System.out.println("Class not found");
+            }
+            System.out.printf("Enter student name (0 to stop) : ");            
+            String name = scan.nextLine();
+            if(name.equals("0")){
+                break;
+            }
+            MainClass.Student target_student =null;
+            for (int i = 0; i < students.size(); i++) {
+                if (students.get(i).getName().equals(name)) {
+                    is_Student_Found=true;
+                    target_student=students.get(i);
+                    break;
+                }
+            }
+            if(!is_Student_Found){
+                System.out.println("Student not found");
+            }
+            
+            if(targetClass.getStudents().contains(target_student)){
+                System.out.println("Student already assigned to this class");
+            }
+            else{
+                targetClass.getStudents().add(target_student);
+                System.out.println("Student " + target_student + " assigned to class " + targetClass.getClassName());
+            }
+        }
+    }
+
+    public static void ClassDetail(){
+
     }
 }
 

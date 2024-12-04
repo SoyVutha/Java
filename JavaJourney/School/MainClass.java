@@ -27,6 +27,7 @@ public class MainClass {
     public static class Class{
         private String className;
         private int section;
+        private List<MainClass.Student> students=new ArrayList<>();
 
         public Class(String className,int section){this.className=className;this.section= section;};
         public String getClassName() {return className;}
@@ -35,6 +36,9 @@ public class MainClass {
         public void setSection(int section) {this.section = section;}
         public void detail(){
             System.out.println("Class Name: "+className+"Class section"+section);
+        }
+        public List<MainClass.Student> getStudents(){
+            return students;
         }
     }
     public static class Teacher {

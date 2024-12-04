@@ -76,7 +76,37 @@ public class Method {
         }
     }
 
-    public static void classmanagement(){}
+    public static void classmanagement(){
+        while (true) {
+            System.out.printf("\n\n1.Add Class\n");
+            System.out.printf("2.Delete Class\n");
+            System.out.printf("3.Assign Student\n");
+            System.out.printf("4.Display Class Details\n");
+            System.out.printf("5.Exit\n");
+            System.out.printf("Enter your choice: ");
+            int choice = scan.nextInt();scan.nextLine();
+            switch(choice){
+                case 1:
+                Method2.addClass();
+                break;
+                case 2:
+                Method2.deleteclass();
+                break;
+                case 3:
+                Method2.AssignStudent();
+                break;
+                case 4: 
+                Method2.ClassDetail();
+                break;
+                case 5:
+                System.out.println("Exiting");
+                System.exit(0);
+                default:
+                System.out.println("Invalid Choice");
+                
+            }            
+        }
+    }
 
     public static void attendancemanagement(){}
 
