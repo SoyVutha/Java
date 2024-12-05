@@ -1,4 +1,4 @@
-package School;
+
 import java.util.*;
 public class MainClass {
     public static class Student {
@@ -28,6 +28,7 @@ public class MainClass {
         private String className;
         private int section;
         private List<MainClass.Student> students=new ArrayList<>();
+        private List<MainClass.Teacher> assigntecher=new ArrayList<>();
 
         public Class(String className,int section){this.className=className;this.section= section;};
         public String getClassName() {return className;}
@@ -39,6 +40,14 @@ public class MainClass {
         }
         public List<MainClass.Student> getStudents(){
             return students;
+        }
+
+        public List<Teacher> getassignTeachers(){
+            return assigntecher;   
+        }
+
+        public void assignteacher(Teacher teacher){
+            assigntecher.add(teacher);
         }
     }
     public static class Teacher {

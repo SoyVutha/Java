@@ -1,4 +1,4 @@
-package School;
+
 import java.util.*;
 public class Method {
     public static Scanner scan=new Scanner(System.in);
@@ -108,7 +108,34 @@ public class Method {
         }
     }
 
-    public static void attendancemanagement(){}
+    public static void attendancemanagement(){
+        while(true){
+            System.out.println("\n\n1.Student Attendace");
+            System.out.println("2.Teacher attendace");
+            System.out.println("3.Teacher's Leave Management");
+            System.out.println("4.Exit");
+            System.out.println("Enter your choice: ");
+            int choice = scan.nextInt();scan.nextLine();
+            switch(choice){
+                case 1:
+                Method2.studentattandance();
+                break;
+                case 2:
+                Method2.teacherattandance();
+                break;
+                case 3:
+                Method2.leavemanagement();
+                break;
+                case 4:
+                System.out.println("Exiting");
+                System.exit(0);
+                default:
+                System.out.println("Invalid Choice");
+                
+            }
+
+        }
+    }
 
     public static void examandgrademanagement(){}
 

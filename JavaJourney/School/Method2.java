@@ -1,7 +1,5 @@
 
 import java.util.*;
-import School.MainClass.Class;
-import School.MainClass.Teacher;
 public  class Method2 {
     public static Scanner scan=new Scanner(System.in);
      
@@ -175,7 +173,7 @@ public  class Method2 {
             System.out.printf("Enter teacher's ID to assign class (0 to stop) : ");
             int id = scan.nextInt();scan.nextLine();
             if(id==0){break;}
-            Teacher teach=null;
+            MainClass.Teacher teach=null;
             for(int i=0;i<teachers.size();i++){
                 if(teachers.get(i).getId()==id){
                     isAssignFound=true;
@@ -246,6 +244,12 @@ public  class Method2 {
             }
         }
     }
+
+    public static void teacherattandance(){
+        
+    }
+
+
     // -------------------------------------------------------------------------------------------------------------------------------------------
     public static void addClass(){
         while(true)
@@ -255,7 +259,7 @@ public  class Method2 {
             if(name.equals("0")){break;}
             System.out.printf("Enter class section : ");
             int section= scan.nextInt();scan.nextLine();
-            Class Cls = new Class(name,section);
+            MainClass.Class Cls = new MainClass.Class(name,section);
             if(classes.contains(Cls)){
                 System.out.println("Class already exists");
             }
@@ -334,8 +338,22 @@ public  class Method2 {
     }
 
     public static void ClassDetail(){
-
+        System.out.printf("\n\n%-15s%-15s%-15s\n","Class Name","Section","Teacher");
+        for(int i=0;i<classes.size();i++){
+            MainClass.Class Cls=classes.get(i);
+            StringBuilder teachername=new StringBuilder();
+            List<MainClass.Teacher> assignTeachers = Cls.getassignTeachers();
+        for(MainClass.Teacher teacher: assignTeachers){
+            if(teachername.length()>0){
+                teachername.append(", ");
+            }
+            teachername.append(teacher.getName());
+        }  
+        if(teachername.length()<0){
+            teachername.append("No Teacher");
+        }
+        System.out.printf("%-15s%-15s%-15s\n",Cls.getClassName(),Cls.getSection(),teachername.toString());
+    }
     }
 }
-
 

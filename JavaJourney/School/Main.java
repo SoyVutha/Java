@@ -1,4 +1,4 @@
-package School;
+
 
 import java.util.*;
 public class Main {
